@@ -1,0 +1,16 @@
+html{
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body {
+    background: map-get($background, main) ;
+    margin : 0px;
+}
+
+header {
+    background: map-get($background, header);
+}

@@ -1,0 +1,15 @@
+.hero {
+    border : solid 2px black;
+
+    &__preview {
+        background: gray;
+    }
+
+    &__button {
+        background: map-get($background, button);
+        border-radius: 8px;
+        display: inline-block;
+        border: none ;
+        padding: 5px 10px;
+    }
+}
