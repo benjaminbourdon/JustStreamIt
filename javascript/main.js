@@ -47,7 +47,8 @@ function editHero(movie){
 
     const balise_hero = document.querySelector(".hero");
     balise_hero.dataset.movieId = movie.id;
-    document.styleSheets[0].insertRule(`.hero:before {background-image: url("${image_url}");`);
+    // document.styleSheets[0].insertRule(`.hero:before {background-image: url("${image_url}");`);
+    balise_hero.style.setProperty('--src', `url("${movie.image_url}"`);
     balise_hero.addEventListener("click", ()=> {openModaleWindow(balise_hero);});
 
     const hero_title = document.querySelector(".hero__title");
@@ -94,7 +95,7 @@ function addCarroussel(node, movies, title=null){
 
     const before = document.createElement("div");
     before.classList.add("before");
-    before.innerText = '<';
+    before.innerHTML = '<svg height="50px" width="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"><polygon points="0 32, 30 32, 30 40, 50 25, 30 10, 30 18, 0 18"></svg>';
     carroussel.appendChild(before);
     
     const main_carroussel = document.createElement("div");
@@ -103,11 +104,12 @@ function addCarroussel(node, movies, title=null){
 
     const after = document.createElement("div");
     after.classList.add("after");
-    after.innerText = '>';
+    after.innerHTML = '<svg height="50px" width="50px" version="1.1" xmlns="http://www.w3.org/2000/svg"><polygon points="0 32, 30 32, 30 40, 50 25, 30 10, 30 18, 0 18"></svg>';
     carroussel.appendChild(after);
 
     movies.forEach(element => {addVignette(main_carroussel, element)});
 
+    main_carroussel.scrollTo(0,0);
     before.addEventListener("click", ()=>scrollCarroussel(main_carroussel, dir=-1));
     after.addEventListener("click", ()=>scrollCarroussel(main_carroussel, dir=1));
 }

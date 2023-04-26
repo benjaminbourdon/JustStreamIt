@@ -30,6 +30,7 @@
         scroll-snap-stop: always;
         position: relative;
         text-align: center;
+        cursor: pointer;
 
         .overlay {
             position: absolute;
@@ -39,7 +40,7 @@
             // margin: 0px;
             // padding: 10px;
             overflow: hidden;
-            transition: .5s ease-out;
+            transition: height .5s ease-out;
             height: 0px;
             z-index: 2;
         }
@@ -64,19 +65,25 @@
         }
     }
     
+    .before, .after {
+        margin: auto 0px;
+        cursor: pointer;
+
+        &:hover {
+            fill: map-get($background, button);
+        }
+    }
+
     .before {
         grid-area: before;
         text-align: right;
-        padding-right: 12px;
-        height: 50px;
-        margin: auto 0px;
+        margin-right: 12px;
+        transform: scaleX(-1);
     }
     .after {
         grid-area: after;
         text-align: left;
-        padding-left: calc(12px - 8px);
-        height: 50px;
-        margin: auto 0px;
+        margin-left: calc(12px - 8px);
     }
 
 }

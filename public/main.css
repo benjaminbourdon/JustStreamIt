@@ -89,6 +89,7 @@ body {
   scroll-snap-stop: always;
   position: relative;
   text-align: center;
+  cursor: pointer;
 }
 .carroussel__vignette .overlay {
   position: absolute;
@@ -96,7 +97,7 @@ body {
   background-color: rgba(0, 0, 0, 0.56);
   width: 100%;
   overflow: hidden;
-  transition: 0.5s ease-out;
+  transition: height 0.5s ease-out;
   height: 0px;
   z-index: 2;
 }
@@ -117,19 +118,23 @@ body {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.3);
 }
+.carroussel .before, .carroussel .after {
+  margin: auto 0px;
+  cursor: pointer;
+}
+.carroussel .before:hover, .carroussel .after:hover {
+  fill: rgb(236, 127, 25);
+}
 .carroussel .before {
   grid-area: before;
   text-align: right;
-  padding-right: 12px;
-  height: 50px;
-  margin: auto 0px;
+  margin-right: 12px;
+  transform: scaleX(-1);
 }
 .carroussel .after {
   grid-area: after;
   text-align: left;
-  padding-left: 4px;
-  height: 50px;
-  margin: auto 0px;
+  margin-left: 4px;
 }
 
 .category {
@@ -148,7 +153,9 @@ body {
   justify-items: center;
   align-items: center;
   overflow: hidden;
+  cursor: pointer;
   position: relative;
+  --src: url();
 }
 .hero:before {
   content: "";
@@ -157,6 +164,7 @@ body {
   z-index: -1;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.092);
+  background-image: var(--src);
   background-size: cover;
   background-position-y: center;
   filter: blur(8px);
@@ -187,6 +195,10 @@ body {
   grid-gap: 20px;
   justify-content: end;
 }
+.nav a, .nav a:visited {
+  text-decoration: none;
+  color: rgb(16, 16, 16);
+}
 
 .home {
   display: grid;
@@ -200,5 +212,5 @@ body {
   padding: 0px 40px;
   position: sticky;
   top: 0px;
-  z-index: 1;
+  z-index: 3;
 }/*# sourceMappingURL=main.css.map */

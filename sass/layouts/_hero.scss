@@ -1,5 +1,4 @@
 .hero {
-    // border : solid 2px black;
     display: grid;
     grid-template-columns: calc(map-get($width, content)*0.9/3) calc(map-get($width, content)*0.9*2/3);
     grid-template-areas: 
@@ -8,8 +7,10 @@
     justify-items: center;
     align-items: center;
     overflow: hidden;
-
+    cursor: pointer;
+    
     position: relative;
+    --src : url();
     &:before {
         content: '';
         width: calc(100% + 20px);
@@ -17,7 +18,7 @@
         z-index: -1;
         position: absolute;
         background-color: rgba(0, 0, 0, 0.092);
-        // background-image: url("https://m.media-amazon.com/images/M/MV5BNDEyYTA5OWEtYjNiYS00MGZlLThjYzEtMTc1Zjk2NDRmZmYxXkEyXkFqcGdeQXVyNzIwNTQyMw@@._V1_UY268_CR1,0,182,268_AL_.jpg");
+        background-image: var(--src);
         background-size: cover;
         background-position-y: center;
         filter: blur(8px);

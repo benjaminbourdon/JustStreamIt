@@ -4,4 +4,9 @@
     grid-template-columns: auto auto ;
     grid-gap : 20px;
     justify-content: end;
+
+    a, a:visited {
+        text-decoration: none;
+        color: map-get($color, black);
+    }
 }
