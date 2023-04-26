@@ -1,31 +1,82 @@
 .carroussel {
     display: grid;
-    grid-template-columns: 20px repeat(auto-fit, minmax(150px, 1fr)) 20px;
-    grid-template-rows: auto ;
-    gap: 20px;
-    overflow: hidden;
-    grid-auto-flow: column;
-    grid-auto-columns: 0px;
-    justify-items: center;
-    align-items: center;
-    justify-self: center;
+    grid-template-columns: 50px auto 50px;
+    grid-template-areas: 
+        "before main after";
+
+    &__main{
+        grid-area: main;
+
+        display: grid;
+        grid-template-columns: repeat(auto-fit, 200px);
+        grid-auto-flow: column;
+        grid-auto-columns: 200px;
+        justify-items: start;
+
+        overflow-x: scroll;
+        overflow-y: hidden;
+        
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        // scrollbar-width: 0px;
+    }
     
     &__vignette {
-        background-color: gray;
-        width: 100%;
-        height: 200px;
-    }
+        // background-color: gray;
+        min-width: auto;
+        max-width: map-get($width, poster);
+        height: 268px;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+        position: relative;
+        text-align: center;
 
-    &:before {
-        content: "<";
-        grid-column: 1 / span 1;
-        grid-row: 1 / 1;
+        .overlay {
+            position: absolute;
+            bottom: 0px;
+            background-color: rgba(0, 0, 0, 0.56);
+            width: 100%;
+            // margin: 0px;
+            // padding: 10px;
+            overflow: hidden;
+            transition: .5s ease-out;
+            height: 0px;
+            z-index: 2;
+        }
+        &:hover .overlay{
+            height: 100%;
+            // padding-top: 50%;
+            // bottom: 50%;
+        }
+        h3 {
+            position: absolute;
+            bottom: 50%;
+            color: white;
+            overflow: hidden;
+            width: 100%;
+            padding: 10px;
+        }
+        img {
+            height: 100%;
+            display: block;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
     }
-
-    &:after {
-        content: ">";
-        grid-column: span 1 / -1;
-        grid-row: 1 / 1;
+    
+    .before {
+        grid-area: before;
+        text-align: right;
+        padding-right: 12px;
+        height: 50px;
+        margin: auto 0px;
+    }
+    .after {
+        grid-area: after;
+        text-align: left;
+        padding-left: calc(12px - 8px);
+        height: 50px;
+        margin: auto 0px;
     }
 
 }

@@ -1,0 +1,7 @@
+.button-play {
+    display: inline-block;
+    background: map-get($background, button);
+    border-radius: 8px;
+    border: none ;
+    padding: 5px 10px;
+}

@@ -7,6 +7,8 @@
     </head>
 
     <body class="home">
+        <div class="modale modale--closed"></div>
+
         <header>
             <h1>JustStreamIt</h1>
             <nav>
@@ -19,42 +21,16 @@
 
         <main>
             <section class="hero">
-                <h2 class="hero__title">Titre de la vidéo</h2>
-                <button class="hero__button">Play</button>
-                <img class="hero__preview" src="" alt="Image de la vidéo">
+                <div class="hero__info">
+                    <h2 class="hero__title">Titre de la vidéo</h2>
+                    <button class="button-play">Play</button>
+                </div>
+                <div class="hero__preview">
+                    <img src="" alt="Image de la vidéo">
+                </div>
             </section>
 
-            <section id="better-movies"></section>
-<!-- 
-            <section class="category">
-                <h2>Films les mieux notés</h2>
-                <div class="carroussel">
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                    <div class="carroussel__vignette">
-                        <h3></h3>
-                        <img src="" alt="">
-                    </div>
-                </div>
-            </section> -->
+            <section class="category" id="better-movies"></section>
         </main>
 
         <script src="javascript/main.js"></script>

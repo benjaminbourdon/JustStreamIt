@@ -19,46 +19,165 @@ body {
   color: rgb(16, 16, 16);
 }
 
+.button-play {
+  display: inline-block;
+  background: rgb(236, 127, 25);
+  border-radius: 8px;
+  border: none;
+  padding: 5px 10px;
+}
+
+.modale {
+  position: fixed;
+  top: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 10px;
+  padding: 20px;
+  color: white;
+  z-index: 10;
+  overflow-y: scroll;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+@keyframes zoom {
+  from {
+    transform: scale(0.1);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.modale.modale--closed {
+  display: none;
+}
+.modale__closebutton:hover, .modale__closebutton:focus {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.modale__image {
+  float: right;
+}
+.modale__content {
+  text-align: left;
+}
+
 .carroussel {
   display: grid;
-  grid-template-columns: 20px repeat(auto-fit, minmax(150px, 1fr)) 20px;
-  grid-template-rows: auto;
-  gap: 20px;
-  overflow: hidden;
+  grid-template-columns: 50px auto 50px;
+  grid-template-areas: "before main after";
+}
+.carroussel__main {
+  grid-area: main;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 200px);
   grid-auto-flow: column;
-  grid-auto-columns: 0px;
-  justify-items: center;
-  align-items: center;
-  justify-self: center;
+  grid-auto-columns: 200px;
+  justify-items: start;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 .carroussel__vignette {
-  background-color: gray;
+  min-width: auto;
+  max-width: 182px;
+  height: 268px;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  text-align: center;
+}
+.carroussel__vignette .overlay {
+  position: absolute;
+  bottom: 0px;
+  background-color: rgba(0, 0, 0, 0.56);
   width: 100%;
-  height: 200px;
+  overflow: hidden;
+  transition: 0.5s ease-out;
+  height: 0px;
+  z-index: 2;
 }
-.carroussel:before {
-  content: "<";
-  grid-column: 1/span 1;
-  grid-row: 1/1;
+.carroussel__vignette:hover .overlay {
+  height: 100%;
 }
-.carroussel:after {
-  content: ">";
-  grid-column: span 1/-1;
-  grid-row: 1/1;
+.carroussel__vignette h3 {
+  position: absolute;
+  bottom: 50%;
+  color: white;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+}
+.carroussel__vignette img {
+  height: 100%;
+  display: block;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.carroussel .before {
+  grid-area: before;
+  text-align: right;
+  padding-right: 12px;
+  height: 50px;
+  margin: auto 0px;
+}
+.carroussel .after {
+  grid-area: after;
+  text-align: left;
+  padding-left: 4px;
+  height: 50px;
+  margin: auto 0px;
+}
+
+.category {
+  text-align: center;
+}
+.category > div {
+  margin: auto;
+  width: 900px;
 }
 
 .hero {
-  border: solid 2px black;
+  display: grid;
+  grid-template-columns: 270px 540px;
+  grid-template-areas: "info preview";
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.hero:before {
+  content: "";
+  width: calc(100% + 20px);
+  height: calc(100% + 20px);
+  z-index: -1;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.092);
+  background-size: cover;
+  background-position-y: center;
+  filter: blur(8px);
+}
+.hero__info {
+  grid-area: info;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  border-radius: 4px;
 }
 .hero__preview {
-  background: gray;
+  grid-area: preview;
+  max-height: 268px;
+  border: solid rgba(0, 0, 0, 0.4);
+  border-width: 0px 4px;
 }
-.hero__button {
-  background: rgb(236, 127, 25);
-  border-radius: 8px;
-  display: inline-block;
-  border: none;
-  padding: 5px 10px;
+.hero__preview img {
+  vertical-align: bottom;
 }
 
 .nav {
@@ -72,7 +191,6 @@ body {
 .home {
   display: grid;
   grid-template-rows: auto 1fr;
-  grid-gap: 20px;
   padding-bottom: 30px;
 }
 .home header {
@@ -82,4 +200,5 @@ body {
   padding: 0px 40px;
   position: sticky;
   top: 0px;
+  z-index: 1;
 }/*# sourceMappingURL=main.css.map */

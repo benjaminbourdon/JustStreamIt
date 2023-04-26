@@ -1,0 +1,41 @@
+.modale {
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
+    width: 90vw;
+    height: 90vh;
+    background-color: rgba(0, 0, 0, 0.90);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+    z-index: 10;
+    overflow-y: scroll;
+
+    animation-name: zoom;
+    animation-duration: 0.6s;
+    
+    @keyframes zoom {
+    from {transform: scale(0.1)} 
+    to {transform: scale(1)}
+    }
+
+    &.modale--closed {
+        display: none;
+    }
+
+    &__closebutton {
+
+        &:hover, &:focus {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+    }
+
+    &__image {
+        float: right;
+    }
+
+    &__content {
+        text-align: left;
+    }
+}  

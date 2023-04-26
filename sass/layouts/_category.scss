@@ -1,0 +1,8 @@
+.category {
+    text-align: center;
+
+    &>div {
+        margin: auto;
+        width: map-get($width , content);
+    }
+}
