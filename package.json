@@ -1,0 +1,21 @@
+{
+  "name": "juststreamit",
+  "version": "1.0.0",
+  "description": "Front-end for OC Movie API",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass ./sass/main.scss:./public/main.css -w --style compressed",  
+    "prefixer": "postcss ./public/main.css --use autoprefixer -d ./public/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjaminbourdon/JustStreamIt.git"
+  },
+  "author": "Benjamin Bourdon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/benjaminbourdon/JustStreamIt/issues"
+  },
+  "homepage": "https://github.com/benjaminbourdon/JustStreamIt#readme",
+  "browserslist": "last 4 versions"
+}
