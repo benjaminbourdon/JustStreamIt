@@ -157,7 +157,7 @@ function verifScrollEnds(main_carroussel, before, after) {
     if (main_carroussel.scrollLeft == 0) {
         before.classList.add("before--inactive");
         after.classList.remove("after--inactive");
-    } else if (main_carroussel.scrollLeft == main_carroussel.scrollLeftMax) {
+    } else if (main_carroussel.scrollLeft + main_carroussel.offsetWidth == main_carroussel.scrollWidth) {
         before.classList.remove("before--inactive");
         after.classList.add("after--inactive");
     } else {
