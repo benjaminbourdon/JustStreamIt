@@ -72,6 +72,10 @@
         &:hover {
             fill: map-get($background, button);
         }
+
+        &--inactive {
+            display: none;
+        }
     }
 
     .before {

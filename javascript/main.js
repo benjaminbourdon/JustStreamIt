@@ -109,9 +109,12 @@ function addCarroussel(node, movies, title=null){
 
     movies.forEach(element => {addVignette(main_carroussel, element)});
 
-    main_carroussel.scrollTo(0,0);
     before.addEventListener("click", ()=>scrollCarroussel(main_carroussel, dir=-1));
     after.addEventListener("click", ()=>scrollCarroussel(main_carroussel, dir=1));
+    
+    main_carroussel.addEventListener("scroll", ()=>{verifScrollEnds(main_carroussel, before, after)});
+    main_carroussel.scrollTo(0,0);
+    verifScrollEnds(main_carroussel, before, after);
 }
 
 async function displayBetterMovies() {
@@ -148,6 +151,19 @@ function scrollCarroussel(carroussel, dir=1) {
         dx *= -1;
     }
     carroussel.scrollBy(dx,0);
+}
+
+function verifScrollEnds(main_carroussel, before, after) {
+    if (main_carroussel.scrollLeft == 0) {
+        before.classList.add("before--inactive");
+        after.classList.remove("after--inactive");
+    } else if (main_carroussel.scrollLeft == main_carroussel.scrollLeftMax) {
+        before.classList.remove("before--inactive");
+        after.classList.add("after--inactive");
+    } else {
+        before.classList.remove("before--inactive");
+        after.classList.remove("after--inactive");
+    }
 }
 
 async function openModaleWindow(node) {
